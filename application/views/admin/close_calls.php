@@ -608,7 +608,7 @@
 						//var_dump($order);
 						?>
 						<tr>
-							<td><?php echo $order->CaseID ?></td>
+							<td> <a class="" href=""><?php echo $order->CaseID ?></a></td>
 							<td></td>
 							<td><?php echo $order->ApptDate ?></td>
 							<td><?php echo $order->ApptTime ?></td>

@@ -107,9 +107,8 @@ class Welcome extends CI_Controller {
             $offset = ((int)$page - 1) * $config["per_page"];
             $str_links = $this->pagination->create_links(); 
             $links = explode('&nbsp;',$str_links );
-     	$colsed_orders = $this->admin_model->get_colsed_orders($config["per_page"],$offset);
-//      	var_dump($colsed_orders[0]->CaseID);
-// exit();
+     		$colsed_orders = $this->admin_model->get_colsed_orders($config["per_page"],$offset);
+
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');
 		//$username = $_SESSION['username'];
@@ -117,6 +116,20 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('template/header', $data);
 		$this->load->view('admin/close_calls', $data);
+		$this->load->view('template/footer', $data);
+
+
+	}
+	public function view_order($FEID){
+
+
+		$username = $this->session->userdata('username');
+		$userid = $this->session->userdata('userid');
+
+		//$username = $_SESSION['username'];
+       	$data =  array('username' => $username );
+		$this->load->view('template/header', $data);
+		$this->load->view('admin/open_calls', $data);
 		$this->load->view('template/footer', $data);
 
 
