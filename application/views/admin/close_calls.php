@@ -1,4 +1,8 @@
-
+<style type="text/css">
+	table{
+		font-size:18px;
+	}
+</style>
 	<div class="main-content">
 				
 		<div class="row">
@@ -581,9 +585,9 @@
 		
 		<div class="row">
 			<div class="col-md-12">
-				<div class="col-md-6">
+				<div class="col-md-12">
 				
-				<h4>Closed Calls</h4>
+				<h3>Closed Calls</h3>
 				
 				<table class="table responsive">
 					<thead>
