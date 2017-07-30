@@ -3,16 +3,15 @@
 class Welcome extends CI_Controller {
 
 
- public function __construct()
-  {
-    parent::__construct();
-    $this->load->helper('url');
-   // $this->load->model('admin_modal');
-    $this->load->library('form_validation');
-   $this->load->library('session');
+	 public function __construct()
+	 {
+	    parent::__construct();
+	    $this->load->helper('url');
+	   	$this->load->model('admin_model');
+	   	$this->load->library('form_validation');
+	   	$this->load->library('session');
+	 }
 
-
-  }
 	/**
 	 * Index Page for this controller.
 	 *
@@ -36,19 +35,19 @@ class Welcome extends CI_Controller {
     		$password = $this->input->post('password');
     		$type= $this->input->post('type');
 
-     		//$login_check = $this->admin_model->admin_login($username,$password,$type);
+     		$login_check = $this->admin_model->admin_login($username,$password,$type);
 
-   //   		if($login_check != Null){
-			// //$this->load->library('Session/session');
-			// //session_start(); 
+     		if($login_check != Null){
+			//$this->load->library('Session/session');
+			//session_start(); 
             	$this->session->set_userdata('username', $username);
             	redirect(base_url('index.php/welcome/home/'));
 
-   //   		}else{
+     		}else{
 
-   //          	redirect(base_url('/'));
+            	redirect(base_url('/'));
 
-   //   		}
+     		}
 
 		}
 		$this->load->view('welcome_message');
