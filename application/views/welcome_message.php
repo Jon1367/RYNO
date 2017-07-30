@@ -15,11 +15,16 @@
 	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
 	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
-	<link rel="stylesheet" href="assets/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/css/neon-core.css">
-	<link rel="stylesheet" href="assets/css/neon-theme.css">
-	<link rel="stylesheet" href="assets/css/neon-forms.css">
-	<link rel="stylesheet" href="assets/css/custom.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/neon-core.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/neon-theme.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/neon-forms.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/skins/white.css">
+
+
+
+	  <script src="<?php echo base_url(); ?>assets/js/jquery.validate.min.js"></script>
 
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 
@@ -33,6 +38,7 @@
 
 
 </head>
+
 <body class="page-body login-page login-form-fall skin-white loaded login-form-fall-init" data-url="http://neon.dev">
 
 
@@ -48,7 +54,8 @@ var baseurl = '';
 		<div class="login-content">
 			
 			<a href="index.html" class="logo">
-				<img src="assets/images/logo@2x.png" width="120" alt="" />
+				<img src="<?php echo base_url(); ?>assets/images/ryno_logo.png" width="300" alt="" />
+				<span class="logo_text">Admin Panel</span>
 			</a>
 			
 			<p class="description">Dear user, log in to access the admin area!</p>
@@ -84,7 +91,7 @@ var baseurl = '';
 							<i class="entypo-user"></i>
 						</div>
 						
-						<input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
+						<input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" required="" />
 					</div>
 					
 				</div>
@@ -96,11 +103,11 @@ var baseurl = '';
 							<i class="entypo-key"></i>
 						</div>
 						
-						<input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
+						<input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" required />
 					</div>
 			        <div class="form-group">
 			        <label id="type" for="subject">Account type</label>
-			            <select  name="type" id="type" class="form-control required" data-toggle="select">
+			            <select  name="type" id="type" class="form-control required" data-toggle="select" required="">
 			                <option value="">----- type -----</option>
 			                <option value="t3chn1cian">technician</option>
 			                <option value="d15patc4">Acounnt Manager</option>

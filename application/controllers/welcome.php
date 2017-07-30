@@ -40,7 +40,9 @@ class Welcome extends CI_Controller {
      		if($login_check != Null){
 			//$this->load->library('Session/session');
 			//session_start(); 
-            	$this->session->set_userdata('username', $username);
+            	$this->session->set_userdata('username', $login_check->FE_Name);
+            	$this->session->set_userdata('userid', $login_check->FEID);
+
             	redirect(base_url('index.php/welcome/home/'));
 
      		}else{
@@ -55,13 +57,63 @@ class Welcome extends CI_Controller {
 		public function home(){
 
 
-		$this->load->helper('url');
-       // $this->load->model('admin_modal');
-        $this->load->library('form_validation');
 		$username = $this->session->userdata('username');
+		$userid = $this->session->userdata('userid');
+
 		//$username = $_SESSION['username'];
        	$data =  array('username' => $username );
+		$this->load->view('template/header', $data);
 		$this->load->view('admin/dashboard_home', $data);
+		$this->load->view('template/footer', $data);
+
+
+	}
+	public function view_calls(){
+
+
+		$username = $this->session->userdata('username');
+		$userid = $this->session->userdata('userid');
+
+		//$username = $_SESSION['username'];
+       	$data =  array('username' => $username );
+		$this->load->view('template/header', $data);
+		$this->load->view('admin/open_calls', $data);
+		$this->load->view('template/footer', $data);
+
+
+	}
+	public function closed_calls(){
+ 		$this->load->library('pagination');
+
+
+            $config = array();
+            $config["base_url"] = base_url() . "/";
+            $config["total_rows"] = count($getTasks_total);
+            $config["per_page"] = 20;
+            $config['uri_segment'] = 3; 
+            $config['use_page_numbers'] = TRUE;
+            $config['num_links'] = 5;
+            $config['cur_tag_open'] = '&nbsp;<a class="current">'; 
+            $config['cur_tag_close'] = '</a>';
+            $config['next_link'] = 'Next'; 
+            $config['prev_link'] = 'Previous';
+
+            $this->pagination->initialize($config);
+            $offset = ($flim_page - 1) * $config["per_page"];
+            $str_links = $this->pagination->create_links(); 
+            $links = explode('&nbsp;',$str_links );
+     	$colsed_orders = $this->admin_model->get_colsed_orders();
+//      	var_dump($colsed_orders[0]->CaseID);
+// exit();
+		$username = $this->session->userdata('username');
+		$userid = $this->session->userdata('userid');
+		//$username = $_SESSION['username'];
+       	$data =  array('username' => $username , 'colsed_orders' => $colsed_orders , $links );
+
+		$this->load->view('template/header', $data);
+		$this->load->view('admin/close_calls', $data);
+		$this->load->view('template/footer', $data);
+
 
 	}
 }
