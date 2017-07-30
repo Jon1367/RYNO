@@ -24,6 +24,8 @@
 
 
 	<script src="<?php echo base_url() ?>assets/js/jquery-1.11.3.min.js"></script>
+    <link href="<?php echo base_url(); ?>assets/css/pagination.css" rel="stylesheet" type="text/css">
+	
 
 	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 	

@@ -606,8 +606,11 @@
 						<tr>
 							<td><?php echo $order->CaseID ?></td>
 							<td></td>
-							<td>Nushi</td>
-						</tr> 
+							<td><?php echo $order->ApptDate ?></td>
+							<td><?php echo $order->ApptTime ?></td>
+							<td><?php echo $order->Vendor ?></td>
+
+						</tr>
 					<?php  } ?>
 				<!-- 		<tr>
 							<td>1</td>
@@ -618,7 +621,18 @@
 						
 					</tbody>
 				</table>
-				
+								<div class="box-footer clearfix">
+                        <div id="pagination">
+                          <ul class="tsc_pagination">
+                          <!-- Show pagination links -->
+                          <?php foreach ($links as $link) { ?>
+                          <li><?php echo $link; ?></li>
+
+                          <?php } ?>
+                          </ul>
+                         </div>
+                       
+                </div>
 			</div>
 	
 				
