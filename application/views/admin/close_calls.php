@@ -2,6 +2,13 @@
 	table{
 		font-size:18px;
 	}
+	a{
+		color:#21a9e1;
+	}
+	a:hover {
+		color:#21a9e1;
+		opacity:.7;
+	}
 </style>
 	<div class="main-content">
 				

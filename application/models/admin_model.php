@@ -35,5 +35,11 @@ class Admin_model extends CI_Controller {
             $this->db->where('FE_Notes', 'Closed');
             return $this->db->get()->result();
     }
+    function get_order_details($FEID){
+            $this->db->select("*");
+            $this->db->from("Service_Records");
+            $this->db->where('FEID', $FEID);
+            return $this->db->get()->result();
+    }
 }
  ?>

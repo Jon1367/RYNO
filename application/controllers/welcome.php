@@ -111,7 +111,6 @@ class Welcome extends CI_Controller {
 
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');
-		//$username = $_SESSION['username'];
        	$data =  array('username' => $username , 'colsed_orders' => $colsed_orders , 'links' => $links );
 
 		$this->load->view('template/header', $data);
@@ -126,8 +125,11 @@ class Welcome extends CI_Controller {
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');
 
-		//$username = $_SESSION['username'];
-       	$data =  array('username' => $username );
+
+     	$order_detials = $this->admin_model->get_order_details($FEID);
+
+
+       	$data =  array('username' => $username , '' );
 		$this->load->view('template/header', $data);
 		$this->load->view('admin/open_calls', $data);
 		$this->load->view('template/footer', $data);
