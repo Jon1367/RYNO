@@ -591,65 +591,17 @@
 		
 		
 		<div class="row">
+		
 			<div class="col-md-12">
-				<div class="col-md-12">
+				<h2>Call Details</h2>
 				
-				<h3>Closed Calls</h3>
-
-				<div class="col-sm-5 pull-right"> <div class="input-group"> <span class="input-group-addon"><i class="entypo-search"></i></span> <input type="text" class="form-control" id="search" placeholder="search..."> </div> </div>
-				
-				<table class="table responsive" id="closed_calls">
-					<thead>
-						<tr>
-							<th>Case Number</th>
-							<th>Payment Approved</th>
-							<th>Appointment Date</th>
-							<th>Appointment Time</th>
-							<th>Vendor</th>
-							<th>Site Customer</th>
-						</tr>
-					</thead>
-					
-					<tbody>
-					
-
-					<?php foreach ($colsed_orders as $order) {
-						//var_dump($order);
-						?>
-						<tr>
-							<td> <a class="" href="<?php echo base_url()?>index.php/welcome/view_order_details/<?php echo $order->CaseID?>"><?php echo $order->CaseID ?></a></td>
-							<td></td>
-							<td><?php echo date("m/d/y", strtotime( $order->ApptDate)); ?></td>
-							<td><?php echo $order->ApptTime ?></td>
-							<td><?php echo $order->Vendor ?></td>
-							<td><?php echo $order->cust1 ?></td>
-
-
-						</tr>
-					<?php  } ?>
-				<!-- 		<tr>
-							<td>1</td>
-							<td>Arlind</td>
-							<td>Nushi</td>
-						</tr>
-						 -->
-						
-					</tbody>
-				</table>
-								<div class="box-footer clearfix">
-                        <div id="pagination">
-                          <ul class="tsc_pagination">
-                          <!-- Show pagination links -->
-                          <?php foreach ($links as $link) { ?>
-                          <li><?php echo $link; ?></li>
-
-                          <?php } ?>
-                          </ul>
-                         </div>
-                       
-                </div>
-			</div>
-	
+				<ul class="col-md-2">
+					<li>
+						<h5 class="pull-left">CaseID:</h3>
+						<p class="pull-right"><?php echo $order_details[0]->CaseID ?></p>
+					</li>
+				</ul>
+		
 				
 			</div>
 		</div>
@@ -658,4 +610,3 @@
 		
 	
 	
-		

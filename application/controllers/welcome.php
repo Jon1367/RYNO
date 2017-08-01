@@ -120,19 +120,19 @@ class Welcome extends CI_Controller {
 
 
 	}
-	public function view_order($FEID){
+	public function view_order_details($caseID){
 
 
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');
 
 
-     	$order_detials = $this->admin_model->get_order_details($FEID);
+     	$order_detials = $this->admin_model->get_order_details($caseID);
 
 
-       	$data =  array('username' => $username , '' );
+       	$data =  array('username' => $username , 'order_details' => $order_detials );
 		$this->load->view('template/header', $data);
-		$this->load->view('admin/open_calls', $data);
+		$this->load->view('admin/view_order_details', $data);
 		$this->load->view('template/footer', $data);
 
 
