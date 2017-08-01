@@ -595,8 +595,10 @@
 				<div class="col-md-12">
 				
 				<h3>Closed Calls</h3>
+
+				<div class="col-sm-5 pull-right"> <div class="input-group"> <span class="input-group-addon"><i class="entypo-search"></i></span> <input type="text" class="form-control" id="search" placeholder="search..."> </div> </div>
 				
-				<table class="table responsive">
+				<table class="table responsive" id="closed_calls">
 					<thead>
 						<tr>
 							<th>Case Number</th>
