@@ -582,7 +582,7 @@
 				<a href="index.html"><i class="fa-home"></i>Home</a>
 			</li>
 			<li class="active">
-				<a href="forms-main.html">Closed Calls</a>
+				<a href="forms-main.html">Call Details</a>
 			</li>
 		</ol>
 					
@@ -590,20 +590,71 @@
 		<br />
 		
 		
+			
 		<div class="row">
-		
-			<div class="col-md-12">
-				<h2>Call Details</h2>
+			<div id="order_detail_heder" class="col-md-12">
+
+				<h3 class="col-md-2 pull-left ">Case Number:</h3>
+				<h6 class="col-md-2 pull-left">
+					<?php echo $order_details[0]->CaseID ?>	
+				</h6>
+				<div class="clearfix"></div>
+
+			</div>
+			<div class="col-md-6 pull-left">
+			
 				
-				<ul class="col-md-2">
-					<li>
-						<h5 class="pull-left">CaseID:</h3>
-						<p class="pull-right"><?php echo $order_details[0]->CaseID ?></p>
+				<ul id="order_list_detials" class="list-unstyled">
+				<li class="col-md-12 text-center"><h4>Customer Info</h4></li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Vendor:</h5>
+						<p class="pull-right"><?php echo $order_details[0]->Vendor ?></p>
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Site Information:</h5>
+						<p class="pull-right">
+						<?php echo $order_details[0]->cust1 ?>
+						<?php echo $order_details[0]->cust2 ?>
+						<?php echo $order_details[0]->cust3 ?>
+						<?php echo $order_details[0]->cust4 ?>
+						<?php echo $order_details[0]->cust5 ?>
+						<?php echo $order_details[0]->cust6 ?>
+
+							
+						</p>
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Apointment date:</h5>
+						<p class="pull-right">
+						<?php echo  date("m/d/y", strtotime( $order_details[0]->ApptDate)); ?>
+						</p>			
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Apointment Time:</h5>
+						<p class="pull-right">
+						<?php echo $order_details[0]->ApptTime ?>
+						</p>			
 					</li>
 				</ul>
-		
-				
+	
 			</div>
+				<div class="col-md-6 mtop pull-left">
+						 <div class="panel minimal minimal-gray"> 
+						 <div class="panel-heading"> 
+						 <div class="panel-title"><h4>Job Description</h4></div>
+						  <div class="panel-options">
+							   <ul class="nav nav-tabs" style="display: none;"> <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li> <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li> </ul> </div> 
+							</div> <div class="panel-body"> <div class="tab-content"> <div class="tab-pane active" id="profile-1"> 
+							    <p>
+							    <?php echo $order_details[0]->JobDescription ?>
+							    </p> 
+						</div> 
+						</div> 
+						</div>
+						 </div> 
+				 
+				</div>
+
 		</div>
 		
 		

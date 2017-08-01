@@ -6,6 +6,44 @@
 .hidden{
 	display: none;
 }
-body {
-	
+#order_list_detials{
+
+	margin-top: 20px;
+
+}
+#order_list_detials li{
+
+	font-size:15px;
+	border-bottom: 2px solid #ebebec;
+	clear:both;
+	float: left;
+
+}
+#order_detail_heder h6{
+
+	color:#00a651;
+	font-size:35px;
+	letter-spacing: 1px;
+	margin-top:15px;
+	padding-left: 0px;
+	/*margin-left:20px;*/
+/*	font-style: bold;*/
+
+
+
+}
+#order_detail_heder h3{
+	font-style: none;
+	color:rgb(115, 120, 129);
+	margin-top:25px;
+
+}
+#order_detail_heder{
+	margin-left:15px;
+}
+.mtop{
+	margin-top: 28px;
+}
+.mtop p{
+	font-size:20px;
 }

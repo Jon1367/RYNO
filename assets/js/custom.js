@@ -1,6 +1,7 @@
        
 $(document).ready(function()
-]
+{
+   
     $('#search').keyup(function(){
         searchTable($(this).val());
     });
