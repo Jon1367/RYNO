@@ -21,18 +21,22 @@ class Admin_model extends CI_Controller {
             return $this->db->get()->row();
     }
 
-    function get_colsed_orders($limit = null,$offset = null){
+    function get_colsed_orders($FEID,$limit = null,$offset = null){
             $this->db->select("*");
             $this->db->from("Service_Records");
             $this->db->where('FE_Notes', 'Closed');
             $this->db->limit($limit, $offset);
+            $this->db->order_by('ApptDate', 'desc');
+            $this->db->where('FEID', $FEID);
+
             return $this->db->get()->result();
     }
 
-    function get_total_colsed_record(){
+    function get_total_colsed_record($FEID){
             $this->db->select("count(CaseID) as Total");
             $this->db->from("Service_Records");
             $this->db->where('FE_Notes', 'Closed');
+            $this->db->where('FEID', $FEID);
             return $this->db->get()->result();
     }
     function get_order_details($FEID){

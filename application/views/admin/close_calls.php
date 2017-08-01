@@ -617,9 +617,11 @@
 						<tr>
 							<td> <a class="" href=""><?php echo $order->CaseID ?></a></td>
 							<td></td>
-							<td><?php echo $order->ApptDate ?></td>
+							<td><?php echo date("m/d/y", strtotime( $order->ApptDate)); ?></td>
 							<td><?php echo $order->ApptTime ?></td>
 							<td><?php echo $order->Vendor ?></td>
+							<td><?php echo $order->cust1 ?></td>
+
 
 						</tr>
 					<?php  } ?>
