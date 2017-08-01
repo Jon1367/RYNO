@@ -601,7 +601,7 @@
 				<div class="clearfix"></div>
 
 			</div>
-									<div class="col-md-12" >
+			<div class="col-md-12 mtop"" >
 					<h4>Order:</h4>
 					<hr>
 			</div>
