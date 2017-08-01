@@ -41,11 +41,17 @@
 #order_detail_heder{
 	/*margin-left:15px;*/
 }
-.mtop{
+#mtop{
 	margin-top: 28px;
 }
+.mtop{
+	margin-top: 10px;
+}
 .mtop p{
-	font-size:20px;
+	font-size:16px;
+}
+#mtop p{
+	font-size:16px;
 }
 hr{
 	margin-top: 10px !important;
@@ -53,4 +59,12 @@ hr{
 }
 .mtop h4{
 	color:rgb(115, 120, 129);
+	color:;
+}
+.sub_headers{
+	color:rgb(33, 169, 225) !important;
+}
+hr{
+	color:black;
+	background-color: black;
 }

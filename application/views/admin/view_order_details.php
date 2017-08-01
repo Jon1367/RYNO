@@ -9,6 +9,7 @@
 		color:#21a9e1;
 		opacity:.7;
 	}
+
 </style>
 	<div class="main-content">
 				
@@ -602,7 +603,7 @@
 
 			</div>
 			<div class="col-md-12 mtop"" >
-					<h4>Order:</h4>
+					<h4 class="sub_headers">Order:</h4>
 					<hr>
 			</div>
 			<div class="clearfix"></div>
@@ -610,7 +611,7 @@
 
 				
 				<ul id="order_list_detials" class="list-unstyled">
-				<li class="col-md-12 text-center"><h4>Customer Info</h4></li>
+				<li class="col-md-12 text-center sub_headers"><h4>Customer Info</h4></li>
 					<li class="col-md-12">
 						<h5 class="pull-left">Vendor:</h5>
 						<p class="pull-right"><?php echo $order_details[0]->Vendor ?></p>
@@ -643,7 +644,7 @@
 				</ul>
 	
 			</div>
-				<div class="col-md-6 mtop pull-left">
+				<div class="col-md-6 pull-left" id="mtop">
 						 <div class="panel minimal minimal-gray"> 
 						 <div class="panel-heading"> 
 						 <div class="panel-title"><h4>Job Description</h4></div>
@@ -664,13 +665,44 @@
 
 		<div class="row">
 			<div class="col-md-12 mtop" >
-					<h4>Tech:</h4>
+					<h4 class="sub_headers">Tech:</h4>
 					<hr>
 			</div>
-			<div class="col-md-8 pull-left">
+			<div class="clearfix"></div>
+	<!-- 		<div class="col-md-2">
+				<h5>TimeStamps</h5>
+			</div> -->
+			
+			<ul class="col-md-6 list-inline list-unstyled">
+				<li class="col-sm-2">
+					<h5 class="text-center">Time In:</h5>
+					<p class="text-center"><?php echo $order_details[0]->TimeIn ?></p>
+				</li>
+				<li class="col-sm-2">					
+					<h5 class="text-center">Time Out:</h5>
+					<p class="text-center"><?php echo $order_details[0]->TimeOut ?></p>
+				</li>
+				<li class="col-sm-2">					
+					<h5 class="text-center">Total Time:</h5>
+					<p class="text-center"><?php echo $order_details[0]->TotalTime?></p>
+				</li>
+				<li class="col-sm-2">					
+					<h5 class="text-center">Total Time:</h5>
+					<p class="text-center"><?php echo $order_details[0]->TotalTime?></p>
+				</li>
+				<div class="clearfix"></div>
+				<li class="col-sm-2">					
+					<h5 class="text-center">Total Time:</h5>
+					<p class="text-center"><?php echo $order_details[0]->TotalTime?></p>
+				</li>
+			</ul>
+				
+	
+			<div class="clearfix"></div>
+			<div class="col-md-8 pull-left mtop">
 						 <div class="panel minimal minimal-gray"> 
 						 <div class="panel-heading"> 
-						 <div class="panel-title"><h4>Work accomplished</h4></div>
+						 <div class="panel-title"><h4 >Work accomplished</h4></div>
 						  <div class="panel-options">
 							   <ul class="nav nav-tabs" style="display: none;"> <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li> <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li> </ul> </div> 
 							</div> <div class="panel-body"> <div class="tab-content"> <div class="tab-pane active" id="profile-1"> 
