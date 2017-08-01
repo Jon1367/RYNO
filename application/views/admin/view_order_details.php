@@ -601,8 +601,13 @@
 				<div class="clearfix"></div>
 
 			</div>
+									<div class="col-md-12" >
+					<h4>Order:</h4>
+					<hr>
+			</div>
+			<div class="clearfix"></div>
 			<div class="col-md-6 pull-left">
-			
+
 				
 				<ul id="order_list_detials" class="list-unstyled">
 				<li class="col-md-12 text-center"><h4>Customer Info</h4></li>
@@ -655,8 +660,33 @@
 				 
 				</div>
 
+		</div> <!-- end of row -->
+
+		<div class="row">
+			<div class="col-md-12 mtop" >
+					<h4>Tech:</h4>
+					<hr>
+			</div>
+			<div class="col-md-8 pull-left">
+						 <div class="panel minimal minimal-gray"> 
+						 <div class="panel-heading"> 
+						 <div class="panel-title"><h4>Work accomplished</h4></div>
+						  <div class="panel-options">
+							   <ul class="nav nav-tabs" style="display: none;"> <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li> <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li> </ul> </div> 
+							</div> <div class="panel-body"> <div class="tab-content"> <div class="tab-pane active" id="profile-1"> 
+							    <p>
+							    <?php echo $order_details[0]->Comments ?>
+							    </p> 
+						</div> 
+						</div> 
+						</div>
+						 </div> 
+				 
+				</div>
 		</div>
-		
+
+
+		<hr>
 		
 		
 	
