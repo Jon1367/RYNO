@@ -83,7 +83,7 @@
 					</a>
 				</li>
 				<li class="">
-					<a href="<?php echo base_url() ?>index.php/welcome/view_calls">
+					<a href="<?php echo base_url() ?>index.php/welcome/open_calls">
 						<i class="entypo-doc-text"></i>
 						<span class="title">View Open Calls</span>
 					</a>
@@ -96,7 +96,7 @@
 					</a>
 				</li>
 				<li class="has-sub hidden">
-					<a href="ui-panels.html">
+					<a href="<?php echo base_url() ?>index.php/welcome/open_calls">
 						<i class="entypo-newspaper"></i>
 						<span class="title">UI Elements</span>
 					</a>

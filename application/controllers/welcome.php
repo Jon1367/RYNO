@@ -89,7 +89,7 @@ class Welcome extends CI_Controller {
 
 			$username = $this->session->userdata('username');
 			$userid = $this->session->userdata('userid');
-			$get_order_total = $this->admin_model->get_total_colsed_record($userid);
+			$get_order_total = $this->admin_model->get_total_tech_record($userid,'Closed');
 			$num_total = (int)$get_order_total[0]->Total;
 			$url_num = $this->uri->segment(3);
 			//$page = $url_num;
@@ -109,13 +109,49 @@ class Welcome extends CI_Controller {
             $offset = ((int)$page - 1) * $config["per_page"];
             $str_links = $this->pagination->create_links(); 
             $links = explode('&nbsp;',$str_links );
-     		$colsed_orders = $this->admin_model->get_colsed_orders($userid,$config["per_page"],$offset);
+     		$colsed_orders = $this->admin_model->get_tech_orders($userid,'Closed',$config["per_page"],$offset);
 
 
        	$data =  array('username' => $username , 'colsed_orders' => $colsed_orders , 'links' => $links );
 
 		$this->load->view('template/header', $data);
 		$this->load->view('admin/close_calls', $data);
+		$this->load->view('template/footer', $data);
+
+
+	}
+	public function open_calls($page = 1){
+ 		$this->load->library('pagination');
+
+			$username = $this->session->userdata('username');
+			$userid = $this->session->userdata('userid');
+			$get_order_total = $this->admin_model->get_total_tech_record($userid,'Open');
+			$num_total = (int)$get_order_total[0]->Total;
+			$url_num = $this->uri->segment(3);
+			//$page = $url_num;
+            $config = array();
+            $config["base_url"] = base_url() . "/index.php/welcome/open_calls/";
+            $config["total_rows"] = $num_total;
+            $config["per_page"] = 20;
+            $config['uri_segment'] = 3;
+            $config['use_page_numbers'] = True;
+            $config['num_links'] = 3;
+            $config['cur_tag_open'] = '&nbsp;<a class="current">'; 
+            $config['cur_tag_close'] = '</a>';
+            $config['next_link'] = 'Next'; 
+            $config['prev_link'] = 'Previous';
+
+            $this->pagination->initialize($config);
+            $offset = ((int)$page - 1) * $config["per_page"];
+            $str_links = $this->pagination->create_links(); 
+            $links = explode('&nbsp;',$str_links );
+     		$colsed_orders = $this->admin_model->get_tech_orders($userid,'Open',$config["per_page"],$offset);
+
+
+       	$data =  array('username' => $username , 'colsed_orders' => $colsed_orders , 'links' => $links );
+
+		$this->load->view('template/header', $data);
+		$this->load->view('admin/open_calls', $data);
 		$this->load->view('template/footer', $data);
 
 

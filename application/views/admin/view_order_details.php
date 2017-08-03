@@ -596,7 +596,7 @@
 			<div id="order_detail_heder" class="col-md-12">
 
 				<h3 class="col-md-2 pull-left ">Case Number:</h3>
-				<h6 class="col-md-2 pull-left">
+				<h6 class="col-md-3 pull-left">
 					<?php echo $order_details[0]->CaseID ?>	
 				</h6>
 				<div class="clearfix"></div>
@@ -660,7 +660,33 @@
 						 </div> 
 				 
 				</div>
+				<div class="clearfix"></div>
+	<div class="col-md-6 pull-left">
 
+				
+				<ul id="order_list_detials" class="list-unstyled">
+				<li class="col-md-12 text-center sub_headers"><h4>Order Info</h4></li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Part name and serial number:</h5>
+						<p class="pull-right"><?php echo $order_details[0]->PartsReplaced ?></p>
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Courier and tracking number:</h5>
+						<p class="pull-right">
+						<?php echo $order_details[0]->Serial_Number; ?>
+						</p>			
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Ship Date:</h5>
+						<p class="pull-right">
+						<?php echo  date("m/d/y", strtotime( $order_details[0]->dateship)); ?>
+						</p>			
+					</li>
+
+				</ul>
+	
+			</div>				 
+			
 		</div> <!-- end of row -->
 
 		<div class="row">
@@ -672,7 +698,23 @@
 	<!-- 		<div class="col-md-2">
 				<h5>TimeStamps</h5>
 			</div> -->
-			
+			<div class="col-md-8 pull-left mtop">
+						 <div class="panel minimal minimal-gray"> 
+						 <div class="panel-heading"> 
+						 <div class="panel-title"><h4 >Work accomplished</h4></div>
+						  <div class="panel-options">
+							   <ul class="nav nav-tabs" style="display: none;"> <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li> <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li> </ul> </div> 
+							</div> <div class="panel-body"> <div class="tab-content"> <div class="tab-pane active" id="profile-1"> 
+							    <p>
+							    <?php echo $order_details[0]->Comments ?>
+							    </p> 
+						</div> 
+						</div> 
+						</div>
+						 </div> 
+				 
+				</div>
+				<div class="clearfix"></div>
 			<ul class="col-md-6 list-inline list-unstyled">
 				<li class="col-sm-2">
 					<h5 class="text-center">Time In:</h5>
@@ -691,30 +733,25 @@
 					<p class="text-center"><?php echo $order_details[0]->TotalTime?></p>
 				</li>
 				<div class="clearfix"></div>
-				<li class="col-sm-2">					
-					<h5 class="text-center">Total Time:</h5>
-					<p class="text-center"><?php echo $order_details[0]->TotalTime?></p>
+				<li class="col-sm-4">					
+					<h5 class="text-center">Miles Traveled:</h5>
+					<p class="text-center"><?php echo $order_details[0]->MilesTraveled?></p>
+				</li>
+				<li class="col-sm-4">					
+					<h5 class="text-center">Miles Traveled:</h5>
+					<p class="text-center money">$ <?php echo $order_details[0]->MileageCost?></p>
+				</li>
+				<div class="clearfix"></div>
+				<br>
+				<li class="col-sm-4 mtop">					
+					<h4 class="pull-left">Time Paid:</h4>
+					<p class="pull-left ml money">$ <?php echo $order_details[0]->TechsPaid?></p>
 				</li>
 			</ul>
 				
 	
 			<div class="clearfix"></div>
-			<div class="col-md-8 pull-left mtop">
-						 <div class="panel minimal minimal-gray"> 
-						 <div class="panel-heading"> 
-						 <div class="panel-title"><h4 >Work accomplished</h4></div>
-						  <div class="panel-options">
-							   <ul class="nav nav-tabs" style="display: none;"> <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li> <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li> </ul> </div> 
-							</div> <div class="panel-body"> <div class="tab-content"> <div class="tab-pane active" id="profile-1"> 
-							    <p>
-							    <?php echo $order_details[0]->Comments ?>
-							    </p> 
-						</div> 
-						</div> 
-						</div>
-						 </div> 
-				 
-				</div>
+
 		</div>
 
 

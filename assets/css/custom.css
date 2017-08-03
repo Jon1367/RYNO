@@ -59,7 +59,7 @@ hr{
 }
 .mtop h4{
 	color:rgb(115, 120, 129);
-	color:;
+
 }
 .sub_headers{
 	color:rgb(33, 169, 225) !important;
@@ -68,3 +68,20 @@ hr{
 	color:black;
 	background-color: black;
 }
+.money{
+	color:#00a65a;
+
+}
+.ml{
+	margin-left: 8px;
+	margin-top: 5px;
+}
+/*p{
+	color:#000;
+	opacity:.8;
+}*/
+/*ul > h5{
+
+		color:rgb(33, 169, 225) !important;
+
+}*/
