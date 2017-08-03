@@ -163,12 +163,29 @@ class Welcome extends CI_Controller {
 		$userid = $this->session->userdata('userid');
 
 
-     	$order_detials = $this->admin_model->get_order_details($caseID);
+     	$order_detials = $this->admin_model->get_order_details($caseID,'Closed');
 
 
        	$data =  array('username' => $username , 'order_details' => $order_detials );
 		$this->load->view('template/header', $data);
 		$this->load->view('admin/view_order_details', $data);
+		$this->load->view('template/footer', $data);
+
+
+	}
+	public function view_open_details($caseID){
+
+
+		$username = $this->session->userdata('username');
+		$userid = $this->session->userdata('userid');
+
+
+     	$order_detials = $this->admin_model->get_order_details($caseID,'Open');
+
+
+       	$data =  array('username' => $username , 'order_details' => $order_detials );
+		$this->load->view('template/header', $data);
+		$this->load->view('admin/view_open_details', $data);
 		$this->load->view('template/footer', $data);
 
 

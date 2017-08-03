@@ -9,6 +9,7 @@
 		color:#21a9e1;
 		opacity:.7;
 	}
+
 </style>
 	<div class="main-content">
 				
@@ -582,7 +583,7 @@
 				<a href="index.html"><i class="fa-home"></i>Home</a>
 			</li>
 			<li class="active">
-				<a href="forms-main.html">Open Calls</a>
+				<a href="forms-main.html">Call Details</a>
 			</li>
 		</ol>
 					
@@ -590,65 +591,169 @@
 		<br />
 		
 		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="col-md-12">
-				
-				<h3>Open Calls</h3>
-
-				<div class="col-sm-5 pull-right"> <div class="input-group"> <span class="input-group-addon"><i class="entypo-search"></i></span> <input type="text" class="form-control" id="search" placeholder="search..."> </div> </div>
-				
-				<table class="table responsive" id="closed_calls">
-					<thead>
-						<tr>
-							<th>Case Number</th>
-							<th>Appointment Date</th>
-							<th>Appointment Time</th>
-							<th>Vendor</th>
-							<th>Site Customer</th>
-							<th>Site Customer</th>
-							<th>View Printable</th>
-						</tr>
-					</thead>
-					
-					<tbody>
-					
-
-					<?php foreach ($colsed_orders as $order) {
-						//var_dump($order);
-						?>
-						<tr>
-							<td> <a class="" href="<?php echo base_url()?>index.php/welcome/view_open_details/<?php echo $order->CaseID?>"><?php echo $order->CaseID ?></a></td>
-							<td><?php echo date("m/d/y", strtotime( $order->ApptDate)); ?></td>
-							<td><?php echo $order->ApptTime ?></td>
-							<td><?php echo $order->Vendor ?></td>
-							<td><?php echo $order->cust1 ?></td>
-
-
-						</tr>
-					<?php  } ?>
 			
-				</table>
-								<div class="box-footer clearfix">
-                        <div id="pagination">
-                          <ul class="tsc_pagination">
-                          <!-- Show pagination links -->
-                          <?php foreach ($links as $link) { ?>
-                          <li><?php echo $link; ?></li>
+		<div class="row">
+			<div id="order_detail_heder" class="col-md-12">
 
-                          <?php } ?>
-                          </ul>
-                         </div>
-                       
-                </div>
+				<h3 class="col-md-2 pull-left ">Case Number:</h3>
+				<h6 class="col-md-3 pull-left">
+					<?php echo $order_details[0]->CaseID ?>	
+				</h6>
+				<div class="clearfix"></div>
+
 			</div>
-	
+			<div class="col-md-12 mtop"" >
+					<h4 class="sub_headers">Order:</h4>
+					<hr>
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6 pull-left">
+
 				
+				<ul id="order_list_detials" class="list-unstyled">
+				<li class="col-md-12 text-center sub_headers"><h4>Customer Info</h4></li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Vendor:</h5>
+						<p class="pull-right"><?php echo $order_details[0]->Vendor ?></p>
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Site Information:</h5>
+						<p class="pull-right">
+						<?php echo $order_details[0]->cust1 ?>
+						<?php echo $order_details[0]->cust2 ?>
+						<?php echo $order_details[0]->cust3 ?>
+						<?php echo $order_details[0]->cust4 ?>
+						<?php echo $order_details[0]->cust5 ?>
+						<?php echo $order_details[0]->cust6 ?>
+
+							
+						</p>
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Apointment date:</h5>
+						<p class="pull-right">
+						<?php echo  date("m/d/y", strtotime( $order_details[0]->ApptDate)); ?>
+						</p>			
+					</li>
+					<li class="col-md-12">
+						<h5 class="pull-left">Apointment Time:</h5>
+						<p class="pull-right">
+						<?php echo $order_details[0]->ApptTime ?>
+						</p>			
+					</li>
+				</ul>
+	
 			</div>
+				<div class="col-md-6 pull-left" id="mtop">
+						 <div class="panel minimal minimal-gray"> 
+						 <div class="panel-heading"> 
+						 <div class="panel-title"><h4>Job Description</h4></div>
+						  <div class="panel-options">
+							   <ul class="nav nav-tabs" style="display: none;"> <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li> <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li> </ul> </div> 
+							</div> <div class="panel-body"> <div class="tab-content"> <div class="tab-pane active" id="profile-1"> 
+							    <p>
+							    <?php echo $order_details[0]->JobDescription ?>
+							    </p> 
+						</div> 
+						</div> 
+						</div>
+						 </div> 
+				 
+				</div>
+				<div class="clearfix"></div>
+				 
+			
+		</div> <!-- end of row -->
+
+		<div class="row">
+			<div class="col-md-12 mtop" >
+					<h4 class="sub_headers">Tech:</h4>
+					<hr>
+			</div>
+			
+			<div class="col-md-12">
+				
+				<form class="form-horizontal form-groups-bordered">
+					<div class="form-group"> 
+						<label for="timeIn" class="col-sm-2  control-label">Time In</label> 
+						<div class="col-sm-5"> 
+							<input type="number" class="form-control" id="timeIn" placeholder=""> 
+						</div> 
+					</div>
+					<div class="form-group"> 
+						<label for="timeOut" class="col-sm-2  control-label">Time Out</label> 
+						<div class="col-sm-5"> 
+							<input type="number" class="form-control" id="timeOut" placeholder=""> 
+						</div> 
+					</div>
+					<div class="form-group"> 
+						<label for="timeOut" class="col-sm-2  control-label">Miles Traveled</label> 
+						<div class="col-sm-5"> 
+							<input type="number" class="form-control" id="timeOut" placeholder=""> 
+						</div> 
+					</div>
+					<div class="form-group"> 
+						<label for="timeOut" class="col-sm-2  control-label">Total Expenses</label> 
+						<div class="col-sm-5"> 
+							<input type="number" class="form-control" id="timeOut" placeholder=""> 
+						</div> 
+					</div>
+					<div class="form-group"> 
+						<label for="login_with" class="col-sm-2  control-label">Log on with </label> 
+						<div class="col-sm-5"> 
+							<input type="number" class="form-control" id="login_with" placeholder=""> 
+						</div> 
+					</div>
+					<div class="form-group"> 
+						<label for="logout_with" class="col-sm-2  control-label">Logged off with</label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="logout_with" placeholder=""> 
+						</div> 
+					</div>
+				<div class="form-group"> 
+						<label for="supported" class="col-sm-2  control-label">Supported by</label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="supported" placeholder=""> 
+						</div> 
+					</div>
+				<div class="form-group"> 
+						<label for="work_notes" class="col-sm-2  control-label">Work accomplished</label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="work_notes" placeholder=""> 
+						</div> 
+					</div>
+				<div class="form-group"> 
+						<label for="orange_num" class="col-sm-2  control-label">	Orange Confirmation number</label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="orange_num" placeholder=""> 
+						</div> 
+					</div>
+				<div class="form-group"> 
+						<label for="parts" class="col-sm-2  control-label">Part name and serial number</label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="parts" placeholder=""> 
+						</div> 
+					</div>
+				<div class="form-group"> 
+						<label for="tracking" class="col-sm-2  control-label">Courier and tracking number</label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="tracking" placeholder=""> 
+						</div> 
+					</div>
+				<div class="form-group"> 
+						<label for="date" class="col-sm-2  control-label">Ship Date</label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="date" placeholder=""> 
+						</div> 
+					</div>
+				</form>
+			</div>
+
 		</div>
-		
+
+
+		<hr>
 		
 		
 	
 	
-		

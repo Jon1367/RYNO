@@ -39,10 +39,11 @@ class Admin_model extends CI_Controller {
             $this->db->where('FEID', $FEID);
             return $this->db->get()->result();
     }
-    function get_order_details($caseID){
+    function get_order_details($caseID,$type = null){
             $this->db->select("*");
             $this->db->from("Service_Records");
             $this->db->where('caseID', $caseID);
+            $this->db->where('FE_Notes',$type);
             return $this->db->get()->result();
     }
 
