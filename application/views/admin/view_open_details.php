@@ -673,11 +673,16 @@
 			
 			<div class="col-md-12">
 				
-				<form class="form-horizontal form-groups-bordered">
+
+				<?php 
+
+     echo form_open($this->uri->uri_string(), array('class' => "form-horizontal form-groups-bordered", 'id' => 'order_form', "method" => "POST"));
+
+				 ?>
 					<div class="form-group"> 
 						<label for="timeIn" class="col-sm-2  control-label">Time In</label> 
 						<div class="col-sm-5"> 
-							<input type="number" class="form-control" id="timeIn" placeholder=""> 
+							<input type="text" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5 id="timeIn" placeholder=""> 
 						</div> 
 					</div>
 					<div class="form-group"> 
@@ -687,21 +692,21 @@
 						</div> 
 					</div>
 					<div class="form-group"> 
-						<label for="timeOut" class="col-sm-2  control-label">Miles Traveled</label> 
+						<label for="miles" class="col-sm-2  control-label">Miles Traveled</label> 
 						<div class="col-sm-5"> 
-							<input type="number" class="form-control" id="timeOut" placeholder=""> 
+							<input type="number" class="form-control" id="miles" placeholder=""> 
 						</div> 
 					</div>
 					<div class="form-group"> 
-						<label for="timeOut" class="col-sm-2  control-label">Total Expenses</label> 
+						<label for="expenses" class="col-sm-2  control-label">Total Expenses</label> 
 						<div class="col-sm-5"> 
-							<input type="number" class="form-control" id="timeOut" placeholder=""> 
+							<input type="number" class="form-control" id="expenses" placeholder=""> 
 						</div> 
 					</div>
 					<div class="form-group"> 
 						<label for="login_with" class="col-sm-2  control-label">Log on with </label> 
 						<div class="col-sm-5"> 
-							<input type="number" class="form-control" id="login_with" placeholder=""> 
+							<input type="text" class="form-control" id="login_with" placeholder=""> 
 						</div> 
 					</div>
 					<div class="form-group"> 
@@ -719,7 +724,7 @@
 				<div class="form-group"> 
 						<label for="work_notes" class="col-sm-2  control-label">Work accomplished</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="work_notes" placeholder=""> 
+							<textarea type="text" class="form-control" id="work_notes" placeholder=""></textarea>
 						</div> 
 					</div>
 				<div class="form-group"> 
@@ -747,8 +752,8 @@
 						</div> 
 					</div>
 
-					<div class="form-group">
-						<input type="submit"  id="order_submit" > 
+					<div class="form-group ">
+						<input type="submit" class="btn btn-success col-sm-5 col-sm-offset-1"  id="order_submit" value="submit" > 
 					</div>
 				</form>
 			</div>

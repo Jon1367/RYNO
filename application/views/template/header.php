@@ -25,6 +25,8 @@
 
 
 
+
+
 	<script src="<?php echo base_url() ?>assets/js/jquery-1.11.3.min.js"></script>
     <link href="<?php echo base_url(); ?>assets/css/pagination.css" rel="stylesheet" type="text/css">
 	
@@ -79,7 +81,7 @@
 				<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 				<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 				<li class="opened active">
-					<a href="index.html">
+					<a href="<?php echo base_url() ?>index.php/welcome/home">
 						<i class="entypo-gauge"></i>
 						<span class="title">Dashboard</span>
 					</a>
@@ -95,6 +97,12 @@
 					<a href="<?php echo base_url() ?>index.php/welcome/closed_calls" target="">
 						<i class="entypo-folder"></i>
 						<span class="title">View Closed Calls</span>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo base_url() ?>index.php/welcome/closed_calls" target="">
+						<i class="entypo-credit-card"></i>
+						<span class="title">Payments and Mileage</span>
 					</a>
 				</li>
 				<li class="has-sub hidden">
@@ -202,7 +210,7 @@
 						</li>
 					</ul>
 				</li>
-				<li class="has-sub">
+				<li class="has-sub" style="display: none;">
 					<a href="forms-main.html">
 						<i class="entypo-doc-text"></i>
 						<span class="title">Forms</span>
@@ -250,7 +258,7 @@
 						</li>
 					</ul>
 				</li>
-				<li class="has-sub">
+				<li class="has-sub" style="display: none;">
 					<a href="tables-main.html">
 						<i class="entypo-window"></i>
 						<span class="title">Tables</span>
@@ -268,7 +276,7 @@
 						</li>
 					</ul>
 				</li>
-				<li class="has-sub">
+				<li class="has-sub" style="display: none;">
 					<a href="extra-icons.html">
 						<i class="entypo-bag"></i>
 						<span class="title">Extra</span>
@@ -303,7 +311,7 @@
 								<span class="title">Portlets</span>
 							</a>
 						</li>
-						<li class="has-sub">
+						<li class="has-sub" style="display: none;"> 
 							<a href="extra-google-maps.html">
 								<span class="title">Maps</span>
 							</a>
@@ -320,7 +328,7 @@
 								</li>
 							</ul>
 						</li>
-						<li>
+						<li >
 							<a href="extra-chat-api.html">
 								<span class="title">Chat API</span>
 							</a>
@@ -361,7 +369,7 @@
 								<span class="title">Invoice</span>
 							</a>
 						</li>
-						<li class="has-sub">
+						<li class="has-sub" style="display: none;">
 							<a href="extra-gallery.html">
 								<span class="title">Gallery</span>
 							</a>
@@ -471,12 +479,12 @@
 					</ul>
 				</li>
 				<li>
-					<a href="charts.html">
+					<a href="charts.html" style="display: none;">
 						<i class="entypo-chart-bar"></i>
 						<span class="title">Charts</span>
 					</a>
 				</li>
-				<li class="has-sub">
+				<li class="has-sub" style="display: none;">
 					<a href="#">
 						<i class="entypo-flow-tree"></i>
 						<span class="title">Menu Levels</span>

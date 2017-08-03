@@ -46,6 +46,16 @@ class Admin_model extends CI_Controller {
             $this->db->where('FE_Notes',$type);
             return $this->db->get()->result();
     }
+    function update_order($caseID,$data){
+
+            $this->db->where('caseID', $caseID);
+            foreach ($data as $key => $value) {
+                $this->db->set($key, $value);
+            }
+            $this->db->update("Service_Records");
+            return $this->db->affected_rows();
+           
+    }
 
 }
  ?>

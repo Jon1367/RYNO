@@ -87,6 +87,7 @@ class Welcome extends CI_Controller {
 	public function closed_calls($page = 1){
  		$this->load->library('pagination');
 
+
 			$username = $this->session->userdata('username');
 			$userid = $this->session->userdata('userid');
 			$get_order_total = $this->admin_model->get_total_tech_record($userid,'Closed');
@@ -175,6 +176,41 @@ class Welcome extends CI_Controller {
 	}
 	public function view_open_details($caseID){
 
+        $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+        if ($this->form_validation->run()) {
+
+            $timeIn = $this->input->post('timeIn');
+            $timeOut = $this->input->post('timeout');
+            $miles = $this->input->post('miles');
+            $expenses = $this->input->post('expenses');
+            $login_with = $this->input->post('login_with');
+            $logout_with = $this->input->post('logout_with');
+            $supported = $this->input->post('supported');
+            $work_notes = $this->input->post('work_notes');
+            $orange_num = $this->input->post('orange_num');
+            $parts = $this->input->post('parts');
+            $tracking = $this->input->post('tracking');
+            $date = $this->input->post('date');
+  
+            $data = array(
+            	'TimeIn' => $timeIn,
+            	'TimeOut' => $timeOut, 
+            	'MilesTraveled' => $miles, 
+            	'MileageCost' => $expenses, 
+            	// 'MileageCost' => $loggin_withh, 
+            	// 'MileageCost' => $logout_withh, 
+            	// 'TimeIn' => $supported, 
+            	// 'WorkOrder' => $work_notes,
+            	// 'TimeIn' => $orange_num, 
+            	// 'TimeIn' => $parts, 
+            	// 'TimeIn' => $tracking, 
+            	'dateship' => $date
+            );
+
+     	$order_detials = $this->admin_model->update_order($caseID,$data);
+
+
+        }
 
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');

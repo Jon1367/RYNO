@@ -153,6 +153,7 @@
 	<script src="<?php echo base_url() ?>assets/js/neon-chat.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/custom.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.5.3/datepicker.js"></script>
+	<script src="<?php echo base_url() ?>assets/js/bootstrap-timepicker.min.js"></script>
 
 
 
