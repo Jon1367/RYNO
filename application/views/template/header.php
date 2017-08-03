@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/neon-forms.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/custom.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/skins/white.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.5.3/datepicker.css">
+
 
 
 	<script src="<?php echo base_url() ?>assets/js/jquery-1.11.3.min.js"></script>

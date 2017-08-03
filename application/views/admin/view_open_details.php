@@ -741,10 +741,14 @@
 						</div> 
 					</div>
 				<div class="form-group"> 
-						<label for="date" class="col-sm-2  control-label">Ship Date</label> 
+						<label for="date" class="col-sm-2 control-label">Ship Date</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="date" placeholder=""> 
+							<input type="text" class="form-control datepicker" data-format="D, dd MM yyyy" id="date" placeholder=""   > 
 						</div> 
+					</div>
+
+					<div class="form-group">
+						<input type="submit"  id="order_submit" > 
 					</div>
 				</form>
 			</div>
