@@ -1,7 +1,13 @@
 <style type="text/css">
-	.page-container .main-content{
-		background-color: #f1f1f1 !important;
-
+	table{
+		font-size:18px;
+	}
+	a{
+		color:#21a9e1;
+	}
+	a:hover {
+		color:#21a9e1;
+		opacity:.7;
 	}
 </style>
 	<div class="main-content">
@@ -570,126 +576,103 @@
 		}
 		</script>
 		
-<!-- 		
-		<div class="row">
-			<div class="col-md-3 col-sm-6">
-				<div class="tile-stats tile-white stat-tile">
-					<h3>15% more</h3>
-					<p>Monthly visitor statistics</p>
-					<span class="daily-visitors"></span>
-				</div>		
-			</div>
 		
-			<div class="col-md-3 col-sm-6">
-				<div class="tile-stats tile-white stat-tile">
-					<h3>32 Sales</h3>
-					<p>Avg. Sales per day</p>
-					<span class="monthly-sales"></span>
-				</div>		
-			</div>
-		
-		
-			<div class="col-md-3 col-sm-6">
-				<div class="tile-stats tile-white stat-tile">
-					<h3>-0.0102</h3>
-					<p>Stock Market</p>
-					<span class="stock-market"></span>
-				</div>		
-			</div>
-		
-		
-			<div class="col-md-3 col-sm-6">
-				<div class="tile-stats tile-white stat-tile">
-					<h3>61.5%</h3>
-					<p>US Dollar Share</p>
-					<span class="pie-chart"></span>
-				</div>		
-			</div>
-		</div>
-		 -->
+		<ol class="breadcrumb bc-3">
+			<li>
+				<a href="index.html"><i class="fa-home"></i>Home</a>
+			</li>
+			<li class="active">
+				<a href="forms-main.html">Closed Calls</a>
+			</li>
+		</ol>
+					
+	<!-- 	<h2>Closed Calls</h2> -->
 		<br />
 		
-		<div class="row">
-			<div class="col-md-9">
-				
-				<script type="text/javascript">
-					jQuery(document).ready(function($)
-					{
-						var map = $("#map-2");
-						
-						map.vectorMap({
-							map: 'europe_merc_en',
-							zoomMin: '3',
-							backgroundColor: '#f4f4f4',
-							focusOn: { x: 0.5, y: 0.7, scale: 3 },
-						    markers: [
-						      {latLng: [50.942, 6.972], name: 'Cologne'},
-						      {latLng: [42.6683, 21.164], name: 'Prishtina'},
-						      {latLng: [41.3861, 2.173], name: 'Barcelona'},
-						    ],
-						    markerStyle: {
-						      initial: {
-						        fill: '#ff4e50',
-						        stroke: '#ff4e50',
-							    "stroke-width": 6,
-							    "stroke-opacity": 0.3,
-		    				      }
-						    },	
-							regionStyle: 
-								{
-								  initial: {
-								    fill: '#e9e9e9',
-								    "fill-opacity": 1,
-								    stroke: 'none',
-								    "stroke-width": 0,
-								    "stroke-opacity": 1
-								  },
-								  hover: {
-								    "fill-opacity": 0.8
-								  },
-								  selected: {
-								    fill: 'yellow'
-								  },
-								  selectedHover: {
-								  }
-								}					
-						});
-					});
-				</script>
-				
-
-				
-			</div>
-		
-		
-
-		</div>
-		
-		<br />
 		
 		<div class="row">
-			<div class="col-sm-12">
-				<div class="panel panel-primary panel-table">
-					<div class="panel-heading">
-						<div class="panel-title">
-							<h3>Message Board</h3>
-							<span>Weekly statistics from AppStore</span>
-						</div>
-						
-						<div class="col-sm-12">
-							<?php foreach ($messages as $key => $value) { ?>
+			<div class="col-md-12">
+				<div class="col-md-12">
+				
+				<h3>Payments and Mileage</h3>
 
-								<p><?php echo $value->comments ?></p>
-						<?php	} ?>
-						</div>
+				<div class="col-sm-5 pull-right"> <div class="input-group"> <span class="input-group-addon"><i class="entypo-search"></i></span> <input type="text" class="form-control" id="search" placeholder="search..."> </div> </div>
+				
+				<table class="table responsive" id="closed_calls">
+					<thead>
+						<tr>
+							<th width="2">Case Number</th>
+							<th width="2%">Vendor</th>
+							<th width="5%">Appointment Date</th>
+							<th width="5%">Time In</th>
+							<th width="5%">Time Out</th>
+							<th width="5%">Total Time</th>
+							<th width="5%">Miles Traveled</th>
+							<th width="5%">Miles paid</th>
+							<th width="5%">Material Cost</th>
+							<th width="5%">Extra Expenses</th>
+							<th width="5%">Vendor Paycode</th>
+							<th width="15%">Paycode Payments</th>
+							<th width="10%">Total Payments</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+					
 
-					</div>
-					<div class="panel-body">	
+					<?php foreach ($colsed_orders as $order) {
+						//var_dump($order);
+						?>
+						<tr>
+							<td> <a class="" href="<?php echo base_url()?>index.php/welcome/view_order_details/<?php echo $order->CaseID?>"><?php echo $order->CaseID ?></a></td>
+							<td><?php echo $order->Vendor ?></td>
+							<td><?php echo date("m/d/y", strtotime( $order->ApptDate)); ?></td>
+							<td><?php echo $order->TimeIn ?></td>
+							<td><?php echo $order->TimeOut ?></td>
+							<td><?php echo $order->TotalTime ?></td>
+							<td class="money">$<?php echo $order->xtra ?></td>
+							<td class="money">$<?php echo $order->tolls ?></td>
+							<td><?php echo $order->MilesTraveled ?></td>
+							<td class="money"><?php echo $order->MileageCost ?></td>
+							<td class="money">$<?php echo $order->venpaid ?></td>
+							<td class="money">$<?php echo $order->PaymentCode ?></td>
+							<td class="money">$<?php echo $order->TechsPaid ?></td>
+
+
+
+
+
+						</tr>
+					<?php  } ?>
+				<!-- 		<tr>
+							<td>1</td>
+							<td>Arlind</td>
+							<td>Nushi</td>
+						</tr>
+						 -->
 						
-					</div>
-				</div>
+					</tbody>
+				</table>
+								<div class="box-footer clearfix">
+                        <div id="pagination">
+                          <ul class="tsc_pagination">
+                          <!-- Show pagination links -->
+                          <?php foreach ($links as $link) { ?>
+                          <li><?php echo $link; ?></li>
+
+                          <?php } ?>
+                          </ul>
+                         </div>
+                       
+                </div>
+			</div>
+	
 				
 			</div>
-
 		</div>
+		
+		
+		
+	
+	
 		

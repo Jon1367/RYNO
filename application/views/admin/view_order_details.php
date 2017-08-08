@@ -728,10 +728,10 @@
 					<h5 class="text-center">Total Time:</h5>
 					<p class="text-center"><?php echo $order_details[0]->TotalTime?></p>
 				</li>
-				<li class="col-sm-2">					
+<!-- 				<li class="col-sm-2">					
 					<h5 class="text-center">Total Time:</h5>
 					<p class="text-center"><?php echo $order_details[0]->TotalTime?></p>
-				</li>
+				</li> -->
 				<div class="clearfix"></div>
 				<li class="col-sm-4">					
 					<h5 class="text-center">Miles Traveled:</h5>

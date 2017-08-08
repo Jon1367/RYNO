@@ -56,6 +56,20 @@ class Admin_model extends CI_Controller {
             return $this->db->affected_rows();
            
     }
+    function get_messages_total(){
 
+            $this->db->select("count(num) as Total");
+            $this->db->from("mssg3");
+            return $this->db->get()->result();
+           
+    }
+    function get_messageBoard_messages(){
+
+            $this->db->select("*");
+            $this->db->from("mssg3");
+            $this->db->order_by('num', 'desc');
+            return $this->db->get()->result();
+           
+    }
 }
  ?>

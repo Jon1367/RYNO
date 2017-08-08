@@ -100,7 +100,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url() ?>index.php/welcome/closed_calls" target="">
+					<a href="<?php echo base_url() ?>index.php/welcome/tech_payments" target="">
 						<i class="entypo-credit-card"></i>
 						<span class="title">Payments and Mileage</span>
 					</a>

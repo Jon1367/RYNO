@@ -56,17 +56,42 @@ class Welcome extends CI_Controller {
 		}
 		$this->load->view('welcome_message');
 	}
-		public function home(){
+		public function home($page = 1){
 
+			$this->load->library('pagination');
 
-		$username = $this->session->userdata('username');
-		$userid = $this->session->userdata('userid');
+			$username = $this->session->userdata('username');
+			$userid = $this->session->userdata('userid');
 
-		//$username = $_SESSION['username'];
-       	$data =  array('username' => $username );
-		$this->load->view('template/header', $data);
-		$this->load->view('admin/dashboard_home', $data);
-		$this->load->view('template/footer', $data);
+			$this->load->library('pagination');
+			$username = $this->session->userdata('username');
+			$userid = $this->session->userdata('userid');
+			$get_order_total = $this->admin_model->get_messages_total();
+			$num_total = (int)$get_order_total[0]->Total;
+			$url_num = $this->uri->segment(3);
+			//$page = $url_num;
+            $config = array();
+            $config["base_url"] = base_url() . "/index.php/welcome/home/";
+            $config["total_rows"] = $num_total;
+            $config["per_page"] = 20;
+            $config['uri_segment'] = 3;
+            $config['use_page_numbers'] = True;
+            $config['num_links'] = 3;
+            $config['cur_tag_open'] = '&nbsp;<a class="current">'; 
+            $config['cur_tag_close'] = '</a>';
+            $config['next_link'] = 'Next'; 
+            $config['prev_link'] = 'Previous';
+
+            $this->pagination->initialize($config);
+            $offset = ((int)$page - 1) * $config["per_page"];
+            $str_links = $this->pagination->create_links(); 
+            $links = explode('&nbsp;',$str_links );
+     		$messages = $this->admin_model->get_messageBoard_messages();
+       	    $data =  array('username' => $username , 'messages' => $messages , 'links' => $links );
+
+			$this->load->view('template/header', $data);
+			$this->load->view('admin/dashboard_home', $data);
+			$this->load->view('template/footer', $data);
 
 
 	}
@@ -162,6 +187,7 @@ class Welcome extends CI_Controller {
 
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');
+		$get_order_total = $this->admin_model->get_total_tech_record($userid,'Open');
 
 
      	$order_detials = $this->admin_model->get_order_details($caseID,'Closed');
@@ -226,6 +252,40 @@ class Welcome extends CI_Controller {
 
 
 	}
+		public function tech_payments($page = 1){
+
+			$this->load->library('pagination');
+			$username = $this->session->userdata('username');
+			$userid = $this->session->userdata('userid');
+			$get_order_total = $this->admin_model->get_total_tech_record($userid,'Closed');
+			$num_total = (int)$get_order_total[0]->Total;
+			$url_num = $this->uri->segment(3);
+			//$page = $url_num;
+            $config = array();
+            $config["base_url"] = base_url() . "/index.php/welcome/tech_payments/";
+            $config["total_rows"] = $num_total;
+            $config["per_page"] = 20;
+            $config['uri_segment'] = 3;
+            $config['use_page_numbers'] = True;
+            $config['num_links'] = 3;
+            $config['cur_tag_open'] = '&nbsp;<a class="current">'; 
+            $config['cur_tag_close'] = '</a>';
+            $config['next_link'] = 'Next'; 
+            $config['prev_link'] = 'Previous';
+
+            $this->pagination->initialize($config);
+            $offset = ((int)$page - 1) * $config["per_page"];
+            $str_links = $this->pagination->create_links(); 
+            $links = explode('&nbsp;',$str_links );
+     		$colsed_orders = $this->admin_model->get_tech_orders($userid,'Closed',$config["per_page"],$offset);
+       	    $data =  array('username' => $username , 'colsed_orders' => $colsed_orders , 'links' => $links );
+
+			$this->load->view('template/header', $data);
+			$this->load->view('admin/tech_payments', $data);
+			$this->load->view('template/footer', $data);
+
+	}
+
 }
 
 /* End of file welcome.php */
