@@ -635,7 +635,7 @@
 							<td><?php echo $order->MilesTraveled ?></td>
 							<td class="money"><?php echo $order->MileageCost ?></td>
 							<td class="money">$<?php echo $order->venpaid ?></td>
-							<td class="money">$<?php echo $order->PaymentCode ?></td>
+							<td ><?php echo $order->PaymentCode ?></td>
 							<td class="money">$<?php echo $order->TechsPaid ?></td>
 
 

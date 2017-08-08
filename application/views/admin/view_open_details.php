@@ -583,6 +583,9 @@
 				<a href="index.html"><i class="fa-home"></i>Home</a>
 			</li>
 			<li class="active">
+				<a href="forms-main.html">Open Calls</a>
+			</li>
+			<li class="active">
 				<a href="forms-main.html">Call Details</a>
 			</li>
 		</ol>
@@ -682,27 +685,33 @@
 					<div class="form-group"> 
 						<label for="timeIn" class="col-sm-2  control-label">Time In</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5 id="timeIn" placeholder=""> 
+							<input type="text" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5" id="timeIn" placeholder=""> 
 						</div> 
 					</div>
 					<div class="form-group"> 
 						<label for="timeOut" class="col-sm-2  control-label">Time Out</label> 
 						<div class="col-sm-5"> 
-							<input type="number" class="form-control" id="timeOut" placeholder=""> 
+							<input type="text" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5" id="timeOut" placeholder=""> 
 						</div> 
 					</div>
 					<div class="form-group"> 
 						<label for="miles" class="col-sm-2  control-label">Miles Traveled</label> 
-						<div class="col-sm-5"> 
+						<div class="input-group col-sm-5"> 
+							<div class="input-group-addon">
+								<i class="entypo-droplet"></i>
+							</div>
 							<input type="number" class="form-control" id="miles" placeholder=""> 
 						</div> 
+						
 					</div>
 					<div class="form-group"> 
 						<label for="expenses" class="col-sm-2  control-label">Total Expenses</label> 
-						<div class="col-sm-5"> 
+						<div class="input-group col-sm-5"> 
+								<span class="input-group-addon">$</span>
 							<input type="number" class="form-control" id="expenses" placeholder=""> 
-						</div> 
-					</div>
+						</div>
+					</div> 
+	
 					<div class="form-group"> 
 						<label for="login_with" class="col-sm-2  control-label">Log on with </label> 
 						<div class="col-sm-5"> 
