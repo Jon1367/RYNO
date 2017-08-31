@@ -48,7 +48,7 @@ class Admin_model extends CI_Controller {
     }
     function update_order($caseID,$data){
 
-            $this->db->where('caseID', $caseID);
+            $this->db->where('CaseID', $caseID);
             foreach ($data as $key => $value) {
                 $this->db->set($key, $value);
             }
