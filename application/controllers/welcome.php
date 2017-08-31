@@ -45,7 +45,11 @@ class Welcome extends CI_Controller {
             	$this->session->set_userdata('username', $login_check->FE_Name);
             	$this->session->set_userdata('userid', $login_check->FEID);
 
-            	redirect(base_url('index.php/welcome/home/'));
+            	if($login_check->typ == 't3chn1cian'){
+	            	redirect(base_url('index.php/welcome/home/'));
+            	}else if($login_check->typ == 'd15patc4'){
+	            	redirect(base_url('index.php/welcome/accountent_home/'));
+            	}
 
      		}else{
 
@@ -56,7 +60,46 @@ class Welcome extends CI_Controller {
 		}
 		$this->load->view('welcome_message');
 	}
-		public function home($page = 1){
+	public function accountent_home($page = 1){
+
+			$this->load->library('pagination');
+
+			$username = $this->session->userdata('username');
+			$userid = $this->session->userdata('userid');
+
+			$this->load->library('pagination');
+			$username = $this->session->userdata('username');
+			$userid = $this->session->userdata('userid');
+			$get_order_total = $this->admin_model->get_messages_total();
+			$num_total = (int)$get_order_total[0]->Total;
+			$url_num = $this->uri->segment(3);
+			//$page = $url_num;
+            $config = array();
+            $config["base_url"] = base_url() . "/index.php/welcome/home/";
+            $config["total_rows"] = $num_total;
+            $config["per_page"] = 20;
+            $config['uri_segment'] = 3;
+            $config['use_page_numbers'] = True;
+            $config['num_links'] = 3;
+            $config['cur_tag_open'] = '&nbsp;<a class="current">'; 
+            $config['cur_tag_close'] = '</a>';
+            $config['next_link'] = 'Next'; 
+            $config['prev_link'] = 'Previous';
+
+            $this->pagination->initialize($config);
+            $offset = ((int)$page - 1) * $config["per_page"];
+            $str_links = $this->pagination->create_links(); 
+            $links = explode('&nbsp;',$str_links );
+     		$messages = $this->admin_model->get_messageBoard_messages();
+       	    $data =  array('username' => $username , 'messages' => $messages , 'links' => $links );
+
+			$this->load->view('template/accountent_header', $data);
+			$this->load->view('admin/dashboard_home', $data);
+			$this->load->view('template/footer', $data);
+
+
+	}
+	public function home($page = 1){
 
 			$this->load->library('pagination');
 
@@ -218,7 +261,7 @@ class Welcome extends CI_Controller {
             $tracking = $this->input->post('tracking');
             $date = $this->input->post('date');
   
-  			var_dump($timeIn);
+
             $data = array(
             	'FE_Notes' => 'Open',
             	'TimeIn' => $timeIn,
@@ -231,7 +274,7 @@ class Welcome extends CI_Controller {
             	// 'WorkOrder' => $work_notes,
             	// 'TimeIn' => $orange_num, 
             	// 'TimeIn' => $parts, 
-            	// 'TimeIn' => $tracking, 
+            	// 'Tracking' => $tracking, 
             	'dateship' => $date
             );
 
@@ -284,6 +327,18 @@ class Welcome extends CI_Controller {
 
 			$this->load->view('template/header', $data);
 			$this->load->view('admin/tech_payments', $data);
+			$this->load->view('template/footer', $data);
+
+	}
+		public function create_calls($page = 1){
+
+		
+			$username = $this->session->userdata('username');
+			$userid = $this->session->userdata('userid');
+       	    $data =  array('username' => $username);
+
+			$this->load->view('template/accountent_header', $data);
+			$this->load->view('admin/create_calls', $data);
 			$this->load->view('template/footer', $data);
 
 	}
