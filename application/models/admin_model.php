@@ -9,13 +9,19 @@ class Admin_model extends CI_Controller {
     {
         parent::__construct();
     }
+    function get_techs(){
 
-    function admin_login($username,$password,$type){
+            $this->db->select("*");
+            $this->db->from("employees");
+            $this->db->order_by('FEID', 'asc');
+            return $this->db->get()->result();
+           
+    }
+    function admin_login($username,$password){
          	$this->db->select("*");
             $this->db->from("employees");
             $this->db->where('FEID', $username);
             $this->db->where('PASSWD', $password);
-            $this->db->where('typ', $type);
             $this->db->where('ACTSTAT', 'active');
 
             return $this->db->get()->row();
@@ -68,6 +74,13 @@ class Admin_model extends CI_Controller {
             $this->db->select("*");
             $this->db->from("mssg3");
             $this->db->order_by('num', 'desc');
+            return $this->db->get()->result();
+           
+    }
+    function get_vendors(){
+
+            $this->db->select("*");
+            $this->db->from("vendor");
             return $this->db->get()->result();
            
     }

@@ -35,9 +35,9 @@ class Welcome extends CI_Controller {
 
 			$username = $this->input->post('username');
     		$password = $this->input->post('password');
-    		$type= $this->input->post('type');
+    		// $type= $this->input->post('type');
 
-     		$login_check = $this->admin_model->admin_login($username,$password,$type);
+     		$login_check = $this->admin_model->admin_login($username,$password);
 
      		if($login_check != Null){
 			//$this->load->library('Session/session');
@@ -332,10 +332,14 @@ class Welcome extends CI_Controller {
 	}
 		public function create_calls($page = 1){
 
+     		$vendors = $this->admin_model->get_vendors();
+
+     		$techs = $this->admin_model->get_techs();
+
 		
 			$username = $this->session->userdata('username');
 			$userid = $this->session->userdata('userid');
-       	    $data =  array('username' => $username);
+       	    $data =  array('username' => $username , 'vendors' => $vendors , 'techs' => $techs);
 
 			$this->load->view('template/accountent_header', $data);
 			$this->load->view('admin/create_calls', $data);

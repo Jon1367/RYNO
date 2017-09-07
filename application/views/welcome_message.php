@@ -105,7 +105,7 @@ var baseurl = '';
 						
 						<input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" required />
 					</div>
-			        <div class="form-group">
+<!-- 			        <div class="form-group">
 			        <label id="type" for="subject">Account type</label>
 			            <select  name="type" id="type" class="form-control required" data-toggle="select" required="">
 			                <option value="">----- type -----</option>
@@ -113,7 +113,7 @@ var baseurl = '';
 			                <option value="d15patc4">Acounnt Manager</option>
 			                <option value="Upload Issues">Upload Issues</option>
 			            </select>
-			        </div> 
+			        </div>  -->
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-block btn-login">
 						<i class="entypo-login"></i>
