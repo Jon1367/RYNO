@@ -432,7 +432,7 @@
 						</div> 
 					</div>
 			      <div class="form-group">
-			        <label id="type" for="subject" class="col-sm-2  control-label">Techs</label>
+			        <label id="type" for="subject" class="col-sm-2  control-label">Field Engineer Assigned</label>
 			        <div class="input-group col-sm-5"> 
 			            <select  name="type" id="type" class="form-control required" data-toggle="select" required="">
 
@@ -444,9 +444,10 @@
 			         </div>
 	
 					<div class="form-group"> 
-						<label for="login_with" class="col-sm-2  control-label">Log on with </label> 
+						<label for="login_with" class="col-sm-2  control-label">Select a Pay Code ** </label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="login_with" placeholder=""> 
+							<select style="WIDTH: 214px" id="select1" name="select1"> <option selected=""></option>
+               <option>1 - Asap 2-Hrs or less</option> <option>17 - 2 - 4 Hour response</option> <option>2 - Regular 4 Hour Response</option> <option>3 - After Hours response</option> <option>4 - Installation</option> <option>5 - De- install</option> <option>13 -Day Rate</option> <option>7-Special Project Marriott/Apple</option> <option>12-Cabling</option> <option>13S - SPECIAL DAY RATE</option></select>
 						</div> 
 					</div>
 					<div class="form-group"> 
