@@ -405,7 +405,7 @@
 			      <div class="form-group">
 			        <label id="type" for="subject" class="col-sm-2  control-label">Vendor</label>
 			        <div class="input-group col-sm-5"> 
-			            <select  name="type" id="type" class="form-control required" data-toggle="select" required="">
+			            <select  name="vendor" id="venor" class="form-control required" data-toggle="select" required="">
 
 			            <?php foreach ($vendors as $vendor) { ?>
 			                <option value="<?php echo $vendor->Vendor ?>"><?php echo $vendor->Vendor ?></option>
@@ -419,7 +419,7 @@
 							<input type="text" name="caseID" class="form-control"  id="caseID"> 
 						</div> 
 					</div>
-				<div class="form-group"> 
+				  <div class="form-group"> 
 						<label for="appDate" class="col-sm-2 control-label">Appointment Date</label> 
 						<div class="col-sm-5"> 
 							<input type="text" class="form-control datepicker" id="appDate" id="appDate" placeholder=""   > 
@@ -432,9 +432,9 @@
 						</div> 
 					</div>
 			      <div class="form-group">
-			        <label id="type" for="subject" class="col-sm-2  control-label">Field Engineer Assigned</label>
+			        <label id="tech" for="subject" class="col-sm-2  control-label">Field Engineer Assigned</label>
 			        <div class="input-group col-sm-5"> 
-			            <select  name="type" id="type" class="form-control required" data-toggle="select" required="">
+			            <select  name="tech" id="tech" class="form-control required" data-toggle="select" required="">
 
 			            <?php foreach ($techs as $tech) { ?>
 			                <option value="<?php echo $tech->FEID ?>"><?php echo $tech->FEID  . ' - '. $tech->FE_Name  ?></option>
@@ -444,50 +444,97 @@
 			         </div>
 	
 					<div class="form-group"> 
-						<label for="login_with" class="col-sm-2  control-label">Select a Pay Code ** </label> 
+						<label for="payment_code" class="col-sm-2  control-label">Select a Pay Code ** </label> 
 						<div class="col-sm-5"> 
-							<select style="WIDTH: 214px" id="select1" name="select1"> <option selected=""></option>
+							<select style="WIDTH: 214px" id="payment_code" name="payment_code"> <option selected=""></option>
                <option>1 - Asap 2-Hrs or less</option> <option>17 - 2 - 4 Hour response</option> <option>2 - Regular 4 Hour Response</option> <option>3 - After Hours response</option> <option>4 - Installation</option> <option>5 - De- install</option> <option>13 -Day Rate</option> <option>7-Special Project Marriott/Apple</option> <option>12-Cabling</option> <option>13S - SPECIAL DAY RATE</option></select>
 						</div> 
 					</div>
 					<div class="form-group"> 
-						<label for="logout_with" class="col-sm-2  control-label">Logged off with</label> 
+						<label for="company_name" class="col-sm-2  control-label">Company Name</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="logout_with" placeholder=""> 
+							<input type="text" class="form-control" id="company_name" name="company_name" placeholder=""> 
 						</div> 
 					</div>
 				<div class="form-group"> 
-						<label for="supported" class="col-sm-2  control-label">Supported by</label> 
+						<label for="adress" class="col-sm-2  control-label">Adress</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="supported" placeholder=""> 
+							<input type="text" class="form-control" id="adress" placeholder=""> 
 						</div> 
 					</div>
 				<div class="form-group"> 
-						<label for="work_notes" class="col-sm-2  control-label">Work accomplished</label> 
+						<label for="add_info" class="col-sm-2  control-label">Additional Address Information</label> 
 						<div class="col-sm-5"> 
-							<textarea type="text" class="form-control" id="work_notes" placeholder=""></textarea>
+							<textarea type="text" class="form-control" id="add_info" placeholder=""></textarea>
 						</div> 
 					</div>
 				<div class="form-group"> 
-						<label for="orange_num" class="col-sm-2  control-label">	Orange Confirmation number</label> 
+						<label for="city" class="col-sm-2  control-label">City</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="orange_num" placeholder=""> 
+							<input type="text" class="form-control" id="city" placeholder=""> 
 						</div> 
 					</div>
 				<div class="form-group"> 
-						<label for="parts" class="col-sm-2  control-label">Part name and serial number</label> 
+						<label for="zipcode" class="col-sm-2  control-label">ZipCode</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="parts" placeholder=""> 
+							<input type="text" class="form-control" id="zipcode" placeholder=""> 
 						</div> 
 					</div>
 				<div class="form-group"> 
-						<label for="tracking" class="col-sm-2  control-label">Courier and tracking number</label> 
+						<label for="state" class="col-sm-2  control-label">State</label> 
 						<div class="col-sm-5"> 
-							<input type="text" class="form-control" id="tracking" placeholder=""> 
+						<select id="State" name="state">
+                  <option selected=""> 
+                  </option>
+                  <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
+                  <option>CA</option><option>CO</option><option>CT</option><option>DC</option><option>DE</option>
+                  <option>FL</option><option>GA</option><option>HI</option><option>ID</option>
+                  <option>IL</option><option>IN</option><option>IA</option><option>KS</option>
+                  <option>KY</option><option>LA</option><option>MA</option><option>MD</option>
+                  <option>ME</option><option>MI</option><option>MN</option><option>MO</option>
+                  <option>MS</option><option>MT</option><option>NC</option><option>ND</option>
+                  <option>NE</option><option>NH</option><option>NJ</option><option>NM</option>
+                  <option>NY</option><option>NV</option><option>OH</option><option>OK</option>
+                  <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+                  <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
+                  <option>VA</option><option>VT</option><option>WA</option><option>WI</option>
+                  <option>WV</option><option>WY</option>
+                  </select>
 						</div> 
 					</div>
-
-
+				     <div class="form-group"> 
+						<label for="job_description" class="col-sm-2  control-label">Job Description</label> 
+						<div class="col-sm-5"> 
+							<textarea type="text" class="form-control" id="job_description" name="job_description" placeholder=""></textarea>
+						</div> 
+					</div>
+				     <div class="form-group"> 
+						<label for="extra_notes" class="col-sm-2  control-label">Extra Notes</label>
+						<div class="col-sm-5"> 
+							<textarea type="text" class="form-control" id="extra_notes" name="extra_notes" placeholder=""></textarea>
+						</div> 
+					</div>
+				<div class="form-group"> 
+						<label for="auth_travel" class="col-sm-2  control-label">
+								Authorized Travel </label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="auth_travel" placeholder=""> 
+						</div> 
+					</div>	
+				<div class="form-group"> 
+						<label for="material_cost" class="col-sm-2  control-label">
+								Material Costs </label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="material_cost" placeholder=""> 
+						</div> 
+					</div>	
+				<div class="form-group"> 
+						<label for="other_expense" class="col-sm-2  control-label">
+								Other Expense </label> 
+						<div class="col-sm-5"> 
+							<input type="text" class="form-control" id="other_expense" placeholder=""> 
+						</div> 
+					</div>					
 					<div class="form-group ">
 						<input type="submit" class="btn btn-success col-sm-5 col-sm-offset-1"  id="order_submit" value="submit" > 
 					</div>

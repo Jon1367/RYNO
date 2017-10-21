@@ -227,25 +227,20 @@ class Welcome extends CI_Controller {
 	}
 	public function view_order_details($caseID){
 
-
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');
 		$get_order_total = $this->admin_model->get_total_tech_record($userid,'Open');
-
-
      	$order_detials = $this->admin_model->get_order_details($caseID,'Closed');
-
-
        	$data =  array('username' => $username , 'order_details' => $order_detials );
 		$this->load->view('template/header', $data);
 		$this->load->view('admin/view_order_details', $data);
 		$this->load->view('template/footer', $data);
 
-
 	}
 	public function view_open_details($caseID){
 
-        $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+    $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+    
    if ($this->input->server('REQUEST_METHOD') === 'POST') {
 
             $timeIn = $this->input->post('timeIn');
@@ -279,18 +274,12 @@ class Welcome extends CI_Controller {
             );
 
      	 echo $order_details = $this->admin_model->update_order($caseID,$data);
-
-     	//var_dump($order_details);
       }
 
 		$username = $this->session->userdata('username');
 		$userid = $this->session->userdata('userid');
-
-
      	$order_detials = $this->admin_model->get_order_details($caseID,'Open');
-
-
-       	$data =  array('username' => $username , 'order_details' => $order_detials );
+       	$data =  array('username' => $username , 'order_details' => $order_detials);
 		$this->load->view('template/header', $data);
 		$this->load->view('admin/view_open_details', $data);
 		$this->load->view('template/footer', $data);
@@ -333,12 +322,60 @@ class Welcome extends CI_Controller {
 		public function create_calls($page = 1){
 
      		$vendors = $this->admin_model->get_vendors();
-
      		$techs = $this->admin_model->get_techs();
-
-		
 			$username = $this->session->userdata('username');
 			$userid = $this->session->userdata('userid');
+            $reord_create = false;
+		   if ($this->input->server('REQUEST_METHOD') === 'POST') {
+
+            $vendor = $this->input->post('vendor');
+            $caseID = $this->input->post('caseID');
+            $appDate = $this->input->post('appDate');
+            $appTime = $this->input->post('appTime');
+            $tech = $this->input->post('tech');
+            $payment_code = $this->input->post('payment_code');
+            $company_name = $this->input->post('company_name');
+            $adress = $this->input->post('adress');
+            $add_info = $this->input->post('add_info');
+            $city = $this->input->post('city');
+            $zip_code = $this->input->post('zip_code');
+            $state = $this->input->post('state');
+            $job_description = $this->input->post('job_description');
+            $extra_notes = $this->input->post('extra_notes');
+            $auth_travel = $this->input->post('auth_travel');
+            $material_cost = $this->input->post('material_cost');
+            $other_expense = $this->input->post('other_expense');
+
+            $data = array(
+            	'Vendor' => $vendor, 
+            	'CaseID' => $caseID, 
+            	'ApptDate' => $appDate, 
+            	'ApptTime' => $appTime, 
+            	'FEID' => $tech, 
+            	'PaymentCode' => $payment_code,
+                'cust1' => $company_name,
+            	'cust2' => $adress, 
+            	'cust3' => $add_info, 
+            	'cust4' => $city ,
+                'cust5' => $state, 
+            	'cust6' => $zip_code, 
+            	'JobDescription' => $job_description, 
+            	'xtr' => $extra_notes, 
+            	'auth_travel' => $auth_travel, 
+            	'material_cost' => $material_cost, 
+            	'other_expense' => $other_expense
+
+            );
+             $insert = $this->admin_model->insert_data('Service_Records',$data);
+             if($insert){
+                $reord_create = true;
+             }else{
+                $reord_create = false;
+             }
+
+		   }
+
+
        	    $data =  array('username' => $username , 'vendors' => $vendors , 'techs' => $techs);
 
 			$this->load->view('template/accountent_header', $data);
